@@ -91,7 +91,7 @@ setup_musl_path() {
 	else
 		fetch "https://musl.cc/${musl_path}.tgz"
 		tar xvf "$musl_abs_path.tgz"
-		echo trying to link ln -s $musl_abs_path/bin/{strip,"${musl_prefix}strip"}
+		msg trying to link ln -s $musl_abs_path/bin/{strip,"${musl_prefix}strip"}
 		# ln -s $musl_abs_path/bin/{strip,"${musl_prefix}strip"}
 	fi
 }
