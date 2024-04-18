@@ -315,36 +315,6 @@ while getopts ':uhv' OPTION; do
 	esac
 done
 
-if ! [ -d linux-"$kernver" ]; then
-	msg "Download linux kernel $kernver"
-	fetch "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${kernver}.tar.xz"
-fi
-
-if ! [ -d busybox-"$busyboxver" ]; then
-	msg "Download busybox $busyboxver"
-	fetch "https://busybox.net/downloads/busybox-${busyboxver}.tar.bz2"
-fi
-
-if ! [ -d dropbear-"$dropbearver" ]; then
-	msg "Download dropbear $dropbearver"
-	fetch "https://matt.ucc.asn.au/dropbear/releases/dropbear-${dropbearver}.tar.bz2"
-fi
-
-if ! [ -d socat-"$socatver" ]; then
-	msg "Download socat $socatver"
-	fetch "http://www.dest-unreach.org/socat/download/socat-${socatver}.tar.gz"
-fi
-
-if ! [ -d $(_musl_path "aarch64") ]; then
-	msg "Download aarch64-linux-musl"
-	setup_musl_path "aarch64"
-fi
-
-if ! [ -d $(_musl_path "x86_64") ]; then
-	msg "Download x86_64-linux-musl"
-	setup_musl_path "x86_64"
-fi
-
 build_kern
 download_curl
 build_initramfs
